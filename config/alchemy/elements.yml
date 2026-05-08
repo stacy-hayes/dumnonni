@@ -1,0 +1,51 @@
+- name: cta
+  ingredients:
+    - role: headline
+      type: Text
+
+    - role: button_text
+      type: Text
+
+    - role: button_link
+      type: Text
+
+- name: hero
+  ingredients:
+    - role: headline
+      type: Text
+
+    - role: subheadline
+      type: Richtext
+
+    - role: button_text
+      type: Text
+
+    - role: button_link
+      type: Text
+
+    - role: background_image
+      type: Picture
+
+- name: image_text
+  ingredients:
+    - role: image
+      type: Picture
+
+    - role: headline
+      type: Text
+
+    - role: body
+      type: Richtext
+
+- name: rich_text
+  ingredients:
+    - role: content
+      type: Richtext
+
+- name: gallery
+
+  ingredients:
+    - role: images
+      type: Picture
+      settings:
+        multiple: true

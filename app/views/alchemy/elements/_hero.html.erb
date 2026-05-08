@@ -1,0 +1,18 @@
+<section class="bg-gray-100 py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <h1 class="text-5xl font-bold mb-6">
+      <%= element.value_for(:headline) %>
+    </h1>
+
+    <div class="text-xl mb-8 prose">
+      <%= element.value_for(:subheadline) %>
+    </div>
+
+    <a
+      href="<%= element.value_for(:button_link) %>"
+      class="inline-block bg-black text-white px-6 py-3 rounded-lg"
+    >
+      <%= element.value_for(:button_text) %>
+    </a>
+  </div>
+</section>

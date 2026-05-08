@@ -66,3 +66,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "alchemy_cms", "~> 8.2"
+
+gem "alchemy-devise", "~> 8.2"
