@@ -112,6 +112,22 @@
         @apply max-w-lg text-base leading-relaxed text-[#4A4036];
     }
 
+    .google-map {
+        @apply mx-auto max-w-5xl px-6 py-12;
+    }
+
+    .google-map-title {
+        @apply mb-6 text-3xl font-semibold tracking-wide text-[#2B2118];
+    }
+
+    .google-map-frame {
+        @apply overflow-hidden rounded-lg shadow-xl;
+    }
+
+    .google-map-frame iframe {
+        @apply block h-[28rem] w-full border-0;
+    }
+
     .site-header {
         @apply sticky top-0 z-50 relative border-b border-[#4A4036]/40 bg-[#DCD3BE]/95 backdrop-blur;
     }

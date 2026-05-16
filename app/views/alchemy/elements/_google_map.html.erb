@@ -1,0 +1,24 @@
+<%= element_view_for(element) do |el| %>
+  <% title = element.value_for(:title) %>
+  <% embed_url = element.value_for(:embed_url) %>
+
+  <% if embed_url.present? %>
+    <section class="google-map">
+      <% if title.present? %>
+        <h2 class="google-map-title">
+          <%= title %>
+        </h2>
+      <% end %>
+
+      <div class="google-map-frame">
+        <iframe
+          src="<%= embed_url %>"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+          title="<%= title.presence || "Google map" %>"
+        ></iframe>
+      </div>
+    </section>
+  <% end %>
+<% end %>

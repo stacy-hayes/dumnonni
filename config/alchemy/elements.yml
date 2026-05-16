@@ -50,12 +50,17 @@
   ingredients:
     - role: image
       type: Picture
-
     - role: linked_page
       type: Page
-
     - role: title
       type: Text
-
     - role: description
+      type: Text
+
+- name: google_map
+  hint: "Embeds a Google Map using a Google Maps embed URL."
+  ingredients:
+    - role: title
+      type: Text
+    - role: embed_url
       type: Text
