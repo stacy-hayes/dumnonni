@@ -1,0 +1,38 @@
+<%= element_view_for(element) do |el| %>
+  <% linked_page = element.value_for(:linked_page) %>
+  <% title = element.value_for(:title) %>
+  <% description = element.value_for(:description) %>
+  <% page_url = linked_page&.url_path %>
+
+  <article class="tile">
+    <div class="tile-image">
+      <% if page_url.present? %>
+        <%= link_to page_url, class: "tile-image-link", aria: { label: title.presence || "View linked page" } do %>
+          <%= el.render :image, { size: "500x500" }, class: "tile-image-file" %>
+        <% end %>
+      <% else %>
+        <div class="tile-image-link">
+          <%= el.render :image, { size: "500x500" }, class: "tile-image-file" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="tile-content">
+      <% if title.present? %>
+        <h2 class="tile-title">
+          <% if page_url.present? %>
+            <%= link_to title, page_url, class: "tile-title-link" %>
+          <% else %>
+            <%= title %>
+          <% end %>
+        </h2>
+      <% end %>
+
+      <% if description.present? %>
+        <p class="tile-description">
+          <%= description %>
+        </p>
+      <% end %>
+    </div>
+  </article>
+<% end %>

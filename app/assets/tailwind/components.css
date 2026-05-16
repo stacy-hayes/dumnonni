@@ -80,6 +80,38 @@
         @apply text-sm leading-relaxed text-[#4A4036];
     }
 
+    .tile {
+        @apply mx-auto grid max-w-5xl gap-6 px-6 py-10 md:grid-cols-[14rem_1fr] md:items-start;
+    }
+
+    .tile-image {
+        @apply w-full;
+    }
+
+    .tile-image-link {
+        @apply block overflow-hidden rounded-lg shadow-xl transition hover:-translate-y-1 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-[#9A6A3A] focus:ring-offset-4 focus:ring-offset-[#E8DFD7];
+    }
+
+    .tile-image-file {
+        @apply aspect-square w-full rounded-lg object-cover transition hover:scale-105;
+    }
+
+    .tile-content {
+        @apply space-y-3 pt-0;
+    }
+
+    .tile-title {
+        @apply text-2xl font-semibold tracking-wide text-[#2B2118];
+    }
+
+    .tile-title-link {
+        @apply text-[#2B2118] no-underline transition hover:text-[#9A6A3A] focus:outline-none focus:text-[#9A6A3A];
+    }
+
+    .tile-description {
+        @apply max-w-lg text-base leading-relaxed text-[#4A4036];
+    }
+
     .site-header {
         @apply sticky top-0 z-50 relative border-b border-[#4A4036]/40 bg-[#DCD3BE]/95 backdrop-blur;
     }

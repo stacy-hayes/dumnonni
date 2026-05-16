@@ -8,11 +8,10 @@
   elements:
     - hero
     - rich_text
-    - image_text
 
 - name: standard
   elements:
     - hero
     - rich_text
-    - image_text
     - carousel
+    - tile
