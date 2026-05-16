@@ -1,0 +1,25 @@
+<%= element_view_for(element) do |el| %>
+  <div id="universeCarousel" class="carousel slide" data-bs-ride="carousel">
+    <!-- Carousel Indicators -->
+    <div class="carousel-indicators">
+      <% element.nested_elements.each_with_index do |slide, index| %>
+        <button type="button" data-bs-target="#universeCarousel" data-bs-slide-to="<%= index %>" class="<%= 'active' if index.zero? %>" aria-current="<%= 'true' if index.zero? %>" aria-label="Slide <%= index + 1 %>"></button>
+      <% end %>
+    </div>
+
+    <!-- Carousel Items -->
+    <div class="carousel-inner">
+      <%= render element.nested_elements %>
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#universeCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#universeCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+<% end %>

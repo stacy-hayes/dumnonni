@@ -49,3 +49,18 @@
       type: Picture
       settings:
         multiple: true
+
+- name: carousel
+  hint: "Displays a sliding carousel of images."
+  nestable_elements:
+    - carousel_slide
+
+- name: carousel_slide
+  hint: "A single slide for the carousel."
+  ingredients:
+    - role: image
+      type: Picture
+    - role: title
+      type: Text
+    - role: caption
+      type: Text

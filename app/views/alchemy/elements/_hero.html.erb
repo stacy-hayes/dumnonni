@@ -1,18 +1,39 @@
-<section class="bg-gray-100 py-20">
-  <div class="max-w-6xl mx-auto px-6">
-    <h1 class="text-5xl font-bold mb-6">
-      <%= element.value_for(:headline) %>
-    </h1>
+<section class="relative isolate overflow-hidden bg-[#2B2118] text-[#F4EFE7]">
+  <% background_image = element.value_for(:background_image) %>
 
-    <div class="text-xl mb-8 prose">
-      <%= element.value_for(:subheadline) %>
+  <% if background_image.present? %>
+    <div class="absolute inset-0 -z-10">
+      <%= image_tag background_image.url,
+                    class: "h-full w-full object-cover",
+                    alt: background_image.name.presence || element.value_for(:headline).to_s %>
+
+      <div class="absolute inset-0 bg-[#2B2118]/65"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-[#2B2118] via-[#2B2118]/0 to-[#2B2118]/0"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#2B2118]/0 via-transparent to-[#F2B2118]/0"></div>
     </div>
+  <% end %>
 
-    <a
-      href="<%= element.value_for(:button_link) %>"
-      class="inline-block bg-black text-white px-6 py-3 rounded-lg"
-    >
-      <%= element.value_for(:button_text) %>
-    </a>
+  <div class="mx-auto flex min-h-[75vh] max-w-7xl items-center px-6 py-24 md:py-32">
+    <div class="max-w-3xl">
+      <% if element.value_for(:headline).present? %>
+        <h1 class="text-5xl font-semibold tracking-wide text-[#F4EFE7] drop-shadow-[0_3px_8px_rgba(0,0,0,0.9)] md:text-7xl">
+          <%= element.value_for(:headline) %>
+        </h1>
+      <% end %>
+
+      <% if element.value_for(:subheadline).present? %>
+        <div class="mt-6 max-w-2xl border-l-2 border-[#8C793F] pl-5 text-lg leading-8 text-[#DCD3BE] drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] md:text-xl">
+          <%= element.value_for(:subheadline)&.html_safe %>
+        </div>
+      <% end %>
+
+      <% if element.value_for(:button_text).present? && element.value_for(:button_link).present? %>
+        <div class="mt-10">
+          <%= link_to element.value_for(:button_text),
+                      element.value_for(:button_link),
+                      class: "inline-flex border border-[#8C793F] bg-[#2B2118]/80 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#F4EFE7] transition hover:bg-[#9A6A3A] hover:text-[#2B2118] focus:outline-none focus:ring-2 focus:ring-[#DCD3BE] focus:ring-offset-2 focus:ring-offset-[#2B2118]" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </section>

@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Dumnonni</title>
+  <title><%= content_for(:title) || "Dumnonni Chronicles" %></title>
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta
+    name="description"
+    content="Dumnonni Chronicles is a live action roleplay group inspired by Celtic mythology, dark age Britain, and heroic storytelling."
+  >
 
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
@@ -12,199 +16,218 @@
   <%= javascript_importmap_tags %>
 </head>
 
-<body class="bg-[#E8DFD7] text-[#2B2118]antialiased min-h-screen flex flex-col">
-
-<!-- Skip Link -->
-<a
-  href="#main-content"
-  class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white text-[#2B2118] px-4 py-2 rounded-lg z-50"
->
-  Skip to content
-</a>
-
-<!-- Header -->
-<header class="border-b border-stone-800 bg-[#DCD3BE] sticky top-0 z-40">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-6">
-
-    <!-- Logo -->
-    <a href="/" class="flex items-center gap-3">
-      <%= image_tag "DC-secondary-logo.png",
-                    alt: "Dumnonni Chronicles",
-                    class: "h-14 w-auto" %>
-  </span>
-    </a>
-
-    <!-- Desktop Navigation -->
-    <nav
-      aria-label="Primary"
-      class="hidden md:block"
-    >
-      <ul class="flex items-center gap-8 text-sm uppercase tracking-wide">
-        <li>
-          <a href="/" class="hover:text-[#2B2118] transition">
-            Home
-          </a>
-        </li>
-
-        <li>
-          <a href="/about" class="hover:text-[#2B2118] transition">
-            About
-          </a>
-        </li>
-
-        <li>
-          <a href="/events" class="hover:text-[#2B2118] transition">
-            Events
-          </a>
-        </li>
-
-        <li>
-          <a href="/gallery" class="hover:text-[#2B2118] transition">
-            Gallery
-          </a>
-        </li>
-
-        <li>
-          <a href="/contact" class="hover:text-[#2B2118] transition">
-            Contact
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-    <!-- Mobile Menu Button -->
-    <button
-      type="button"
-      id="mobile-menu-button"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-      aria-label="Open menu"
-      class="md:hidden inline-flex items-center justify-center rounded-lg border border-stone-700 px-3 py-2 hover:bg-stone-900 focus:outline-none focus:ring-2 focus:ring-amber-300"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        class="w-6 h-6"
-      >
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5m-16.5 5.25h16.5m-16.5 5.25h16.5" />
-      </svg>
-    </button>
-
-  </div>
-
-  <!-- Mobile Menu -->
-  <div
-    id="mobile-menu"
-    class="hidden md:hidden border-t border-stone-800"
+<body class="min-h-screen flex flex-col bg-[#E8DFD7] text-[#2B2118] antialiased selection:bg-[#9A6A3A] selection:text-[#F4EFE7]">
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-[#F4EFE7] focus:px-4 focus:py-2 focus:text-[#2B2118] focus:shadow-lg"
   >
-    <nav aria-label="Mobile">
-      <ul class="flex flex-col px-6 py-4 gap-4 text-sm uppercase tracking-wide">
-        <li>
-          <a href="/" class="block hover:text-[#2B2118] transition">
-            Home
-          </a>
-        </li>
+    Skip to content
+  </a>
 
-        <li>
-          <a href="/about" class="block hover:text-[#2B2118] transition">
-            About
-          </a>
-        </li>
+  <header class="sticky top-0 border-b border-[#4A4036]/40 bg-[#DCD3BE]/95 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4">
+      <a href="/" class="flex items-center gap-3" aria-label="Dumnonni Chronicles home">
+        <%= image_tag "DC_LOGO_MASTER.svg",
+                      alt: "Dumnonni Chronicles",
+                      class: "h-14 w-auto" %>
+      </a>
 
-        <li>
-          <a href="/events" class="block hover:text-[#2B2118] transition">
-            Events
-          </a>
-        </li>
+      <nav aria-label="Primary navigation" class="hidden md:block">
+        <ul class="flex items-right gap-8 text-m font-semibold uppercase tracking-[0.18em] text-[#2B2118]">
 
-        <li>
-          <a href="/gallery" class="block hover:text-[#2B2118] transition">
-            Gallery
-          </a>
-        </li>
+          <li>
+            <a href="/about" class="transition hover:text-[#9A6A3A] focus:outline-none focus:ring-2 focus:ring-[#9A6A3A] focus:ring-offset-4 focus:ring-offset-[#DCD3BE]">
+              About
+            </a>
+          </li>
 
-        <li>
-          <a href="/contact" class="block hover:text-[#2B2118] transition">
-            Contact
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
+          <li>
+            <a href="/rules" class="block transition hover:text-[#9A6A3A]">
+              Rules
+            </a>
+          </li>
 
-<!-- Main Content -->
-<main id="main-content" class="flex-1">
-  <%= yield %>
-</main>
+          <li>
+            <a href="/booking" class="block transition hover:text-[#9A6A3A]">
+              Booking
+            </a>
+          </li>
 
-<!-- Footer -->
-<footer class="border-t border-stone-800 bg-[#DCD3BE] mt-20">
-  <div class="max-w-7xl mx-auto px-6 py-12 grid gap-10 md:grid-cols-3">
+          <li>
+            <a href="/gallery" class="transition hover:text-[#9A6A3A] focus:outline-none focus:ring-2 focus:ring-[#9A6A3A] focus:ring-offset-4 focus:ring-offset-[#DCD3BE]">
+              Gallery
+            </a>
+          </li>
 
-    <div>
-      <h2 class="text-lg font-semibold mb-4">
-        Dumnonni Chronicles
-      </h2>
+          <li>
+            <a href="/contact" class="transition hover:text-[#9A6A3A] focus:outline-none focus:ring-2 focus:ring-[#9A6A3A] focus:ring-offset-4 focus:ring-offset-[#DCD3BE]">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </nav>
 
-      <p class="text-[#2B2118] text-sm leading-relaxed">
-        Live action roleplay inspired by Celtic mythology, dark age Britain,
-        and heroic storytelling.
-      </p>
+      <button
+        type="button"
+        id="mobile-menu-button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Open navigation menu"
+        class="inline-flex items-center justify-center rounded-md border border-[#4A4036] px-3 py-2 text-[#2B2118] transition hover:bg-[#CFC3AA] focus:outline-none focus:ring-2 focus:ring-[#9A6A3A] focus:ring-offset-2 focus:ring-offset-[#DCD3BE] md:hidden"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="h-6 w-6"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5m-16.5 5.25h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
     </div>
 
-    <div>
-      <h2 class="text-lg font-semibold mb-4">
-        Navigation
-      </h2>
+    <div id="mobile-menu" class="hidden border-t border-[#4A4036]/40 bg-[#DCD3BE] md:hidden">
+      <nav aria-label="Mobile navigation">
+        <ul class="flex flex-col gap-4 px-6 py-5 text-sm font-semibold uppercase tracking-[0.18em] text-[#2B2118]">
+          <li>
+            <a href="/" class="block transition hover:text-[#9A6A3A]">
+              Home
+            </a>
+          </li>
 
-      <ul class="space-y-2 text-sm text-[#2B2118]">
-        <li><a href="/" class="hover:text-[#2B2118]">Home</a></li>
-        <li><a href="/about" class="hover:text-[#2B2118]">About</a></li>
-        <li><a href="/events" class="hover:text-[#2B2118]">Events</a></li>
-        <li><a href="/gallery" class="hover:text-[#2B2118]">Gallery</a></li>
-        <li><a href="/contact" class="hover:text-[#2B2118]">Contact</a></li>
+          <li>
+            <a href="/about" class="block transition hover:text-[#9A6A3A]">
+              About
+            </a>
+          </li>
+
+          <li>
+            <a href="/rules" class="block transition hover:text-[#9A6A3A]">
+              Rules
+            </a>
+          </li>
+
+          <li>
+            <a href="/booking" class="block transition hover:text-[#9A6A3A]">
+              Booking
+            </a>
+          </li>
+
+          <li>
+            <a href="/gallery" class="block transition hover:text-[#9A6A3A]">
+              Gallery
+            </a>
+          </li>
+
+          <li>
+            <a href="/contact" class="block transition hover:text-[#9A6A3A]">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="flex-1">
+    <%= yield %>
+  </main>
+
+  <footer class="mt-20 border-t border-[#4A4036]/40 bg-[#2F3A25] text-[#F4EFE7]">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-12 md:grid-cols-3">
+      <section>
+        <h2 class="mb-4 text-lg font-semibold tracking-wide">
+          Dumnonni Chronicles
+        </h2>
+
+        <p class="max-w-2xs text-m leading-relaxed text-[#DCD3BE]">
+          Live action roleplay inspired by Celtic mythology, dark age Britain,
+          and heroic storytelling.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-4 text-lg font-semibold tracking-wide">
+          Community
+        </h2>
+
+        <ul class="space-y-2 text-m text-[#DCD3BE]">
+          <li>
+            <a
+              href="https://www.facebook.com/dumnonni"
+              class="transition hover:text-[#B65A2A]"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Facebook
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://discord.gg/VPaFrcg6uf"
+              class="transition hover:text-[#B65A2A]"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Discord
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="mb-4 text-lg font-semibold tracking-wide">
+          Find us
+        </h2>
+      <ul class="space-y-2 text-m text-[#DCD3BE]">
+        <li>
+          <a
+            href="https://maps.app.goo.gl/mTT6yJwWq8bZPWNL6"
+            class="transition hover:text-[#B65A2A] space-y-2 text-m text-[#DCD3BE]"
+          target="_blank"
+          rel="noopener noreferrer"
+          >
+          Google Maps
+          </a>
+        </li>
+
+        <li>
+          <h3 class="space-y-2 text-m text-[#DCD3BE]">What3Words </h3>
+
+          <p  class="space-y-2 text-m text-[#DCD3BE]">voted.leotard.canoe </p>
+        </li>
       </ul>
+      </section>
     </div>
 
-    <div>
-      <h2 class="text-lg font-semibold mb-4">
-        Social Media
-      </h2>
-
-      <ul class="space-y-2 text-sm text-[#2B2118]">
-        <li><a href="https://www.facebook.com/groups/5084209706/" class="hover:text-[#2B2118]">Facebook</a></li>
-        <li><a href="/https://discord.gg/VPaFrcg6uf" class="hover:text-[#2B2118]">Discord</a></li>
-      </ul>
+    <div class="border-t border-[#F4EFE7]/15 px-6 py-6 text-center text-xs text-[#DCD3BE]">
+      © <%= Time.current.year %> Dumnonni Chronicles. All rights reserved.
     </div>
+  </footer>
 
-  </div>
-
-  <div class="border-t border-stone-800 py-6 text-center text-xs text-stone-500">
-    © <%= Time.current.year %> Dumnonni Chronicles
-  </div>
-</footer>
-
-<!-- Mobile Menu Script -->
-<script>
+  <script>
     document.addEventListener("turbo:load", () => {
-        const button = document.getElementById("mobile-menu-button")
-        const menu = document.getElementById("mobile-menu")
+      const button = document.getElementById("mobile-menu-button")
+      const menu = document.getElementById("mobile-menu")
 
-        if (!button || !menu) return
+      if (!button || !menu) return
 
-        button.addEventListener("click", () => {
-            const expanded = button.getAttribute("aria-expanded") === "true"
+      button.addEventListener("click", () => {
+        const expanded = button.getAttribute("aria-expanded") === "true"
 
-            button.setAttribute("aria-expanded", (!expanded).toString())
+        button.setAttribute("aria-expanded", (!expanded).toString())
+        button.setAttribute(
+          "aria-label",
+          expanded ? "Open navigation menu" : "Close navigation menu"
+        )
 
-            menu.classList.toggle("hidden")
-        })
+        menu.classList.toggle("hidden")
+      })
     })
-</script>
-
+  </script>
 </body>
 </html>
