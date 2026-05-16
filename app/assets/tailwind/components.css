@@ -1,0 +1,101 @@
+@layer components {
+    .page-body {
+        @apply min-h-screen flex flex-col bg-[#E8DFD7] text-[#2B2118] antialiased selection:bg-[#9A6A3A] selection:text-[#F4EFE7];
+    }
+
+    .skip-link {
+        @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-[#F4EFE7] focus:px-4 focus:py-2 focus:text-[#2B2118] focus:shadow-lg;
+    }
+
+    .site-header {
+        @apply sticky top-0 z-50 relative border-b border-[#4A4036]/40 bg-[#DCD3BE]/95 backdrop-blur;
+    }
+
+    .site-header-inner {
+        @apply flex w-full items-center justify-between gap-4 px-3 py-4 sm:px-4 lg:px-6;
+    }
+
+    .site-logo-link {
+        @apply flex shrink-0 items-center gap-3;
+    }
+
+    .site-logo {
+        @apply h-14 w-auto;
+    }
+
+    .desktop-nav {
+        @apply hidden md:block;
+    }
+
+    .desktop-nav-list {
+        @apply flex items-center justify-end gap-6 text-sm font-semibold uppercase tracking-[0.14em] text-[#2B2118];
+    }
+
+    .nav-link {
+        @apply transition hover:text-[#9A6A3A] focus:outline-none focus:ring-2 focus:ring-[#9A6A3A] focus:ring-offset-4 focus:ring-offset-[#DCD3BE];
+    }
+
+    .mobile-nav-details {
+        @apply md:hidden;
+    }
+
+    .mobile-nav-summary {
+        @apply inline-flex cursor-pointer list-none items-center justify-center rounded-md border border-[#4A4036] px-3 py-2 text-[#2B2118] transition hover:bg-[#CFC3AA] focus:outline-none focus:ring-2 focus:ring-[#9A6A3A] focus:ring-offset-2 focus:ring-offset-[#DCD3BE];
+    }
+
+    .mobile-nav-summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .mobile-menu-icon {
+        @apply h-6 w-6;
+    }
+
+    .mobile-menu {
+        @apply absolute left-0 top-full w-full border-t border-[#4A4036]/40 bg-[#DCD3BE] shadow-lg;
+    }
+
+    .mobile-nav-list {
+        @apply flex flex-col gap-4 px-6 py-5 text-sm font-semibold uppercase tracking-[0.18em] text-[#2B2118];
+    }
+
+    .mobile-nav-link {
+        @apply block transition hover:text-[#9A6A3A];
+    }
+
+    .site-main {
+        @apply flex-1;
+    }
+
+    .site-footer {
+        @apply mt-20 border-t border-[#4A4036]/40 bg-[#2F3A25] text-[#F4EFE7];
+    }
+
+    .site-footer-inner {
+        @apply mx-auto grid max-w-7xl gap-10 px-6 py-12 md:grid-cols-3;
+    }
+
+    .footer-heading {
+        @apply mb-4 text-lg font-semibold tracking-wide;
+    }
+
+    .footer-text {
+        @apply text-base text-[#DCD3BE];
+    }
+
+    .footer-description {
+        @apply max-w-2xs text-base leading-relaxed text-[#DCD3BE];
+    }
+
+    .footer-list {
+        @apply space-y-2 text-base text-[#DCD3BE];
+    }
+
+    .footer-link {
+        @apply transition hover:text-[#B65A2A];
+    }
+
+    .footer-bottom {
+        @apply border-t border-[#F4EFE7]/15 px-6 py-6 text-center text-xs text-[#DCD3BE];
+    }
+}

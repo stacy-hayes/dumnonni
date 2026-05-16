@@ -16,218 +16,133 @@
   <%= javascript_importmap_tags %>
 </head>
 
-<body class="min-h-screen flex flex-col bg-[#E8DFD7] text-[#2B2118] antialiased selection:bg-[#9A6A3A] selection:text-[#F4EFE7]">
-  <a
-    href="#main-content"
-    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-[#F4EFE7] focus:px-4 focus:py-2 focus:text-[#2B2118] focus:shadow-lg"
-  >
-    Skip to content
-  </a>
+<body class="page-body">
+<a href="#main-content" class="skip-link">
+  Skip to content
+</a>
 
-  <header class="sticky top-0 border-b border-[#4A4036]/40 bg-[#DCD3BE]/95 backdrop-blur">
-    <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4">
-      <a href="/" class="flex items-center gap-3" aria-label="Dumnonni Chronicles home">
-        <%= image_tag "DC_LOGO_MASTER.svg",
-                      alt: "Dumnonni Chronicles",
-                      class: "h-14 w-auto" %>
-      </a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" class="site-logo-link" aria-label="Dumnonni Chronicles home">
+      <%= image_tag "DC_LOGO_MASTER.svg",
+                    alt: "Dumnonni Chronicles",
+                    class: "site-logo" %>
+    </a>
 
-      <nav aria-label="Primary navigation" class="hidden md:block">
-        <ul class="flex items-right gap-8 text-m font-semibold uppercase tracking-[0.18em] text-[#2B2118]">
+    <nav aria-label="Primary navigation" class="desktop-nav">
+      <ul class="desktop-nav-list">
+        <li><a href="/about" class="nav-link">About</a></li>
+        <li><a href="/rules" class="nav-link">Rules</a></li>
+        <li><a href="/booking" class="nav-link">Booking</a></li>
+        <li><a href="/gallery" class="nav-link">Gallery</a></li>
+        <li><a href="/contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
 
-          <li>
-            <a href="/about" class="transition hover:text-[#9A6A3A] focus:outline-none focus:ring-2 focus:ring-[#9A6A3A] focus:ring-offset-4 focus:ring-offset-[#DCD3BE]">
-              About
-            </a>
-          </li>
-
-          <li>
-            <a href="/rules" class="block transition hover:text-[#9A6A3A]">
-              Rules
-            </a>
-          </li>
-
-          <li>
-            <a href="/booking" class="block transition hover:text-[#9A6A3A]">
-              Booking
-            </a>
-          </li>
-
-          <li>
-            <a href="/gallery" class="transition hover:text-[#9A6A3A] focus:outline-none focus:ring-2 focus:ring-[#9A6A3A] focus:ring-offset-4 focus:ring-offset-[#DCD3BE]">
-              Gallery
-            </a>
-          </li>
-
-          <li>
-            <a href="/contact" class="transition hover:text-[#9A6A3A] focus:outline-none focus:ring-2 focus:ring-[#9A6A3A] focus:ring-offset-4 focus:ring-offset-[#DCD3BE]">
-              Contact
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      <button
-        type="button"
-        id="mobile-menu-button"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-        aria-label="Open navigation menu"
-        class="inline-flex items-center justify-center rounded-md border border-[#4A4036] px-3 py-2 text-[#2B2118] transition hover:bg-[#CFC3AA] focus:outline-none focus:ring-2 focus:ring-[#9A6A3A] focus:ring-offset-2 focus:ring-offset-[#DCD3BE] md:hidden"
-      >
+    <details class="mobile-nav-details">
+      <summary class="mobile-nav-summary" aria-label="Open navigation menu">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           stroke-width="1.5"
           stroke="currentColor"
-          class="h-6 w-6"
+          class="mobile-menu-icon"
           aria-hidden="true"
         >
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5m-16.5 5.25h16.5m-16.5 5.25h16.5" />
         </svg>
-      </button>
-    </div>
+      </summary>
 
-    <div id="mobile-menu" class="hidden border-t border-[#4A4036]/40 bg-[#DCD3BE] md:hidden">
-      <nav aria-label="Mobile navigation">
-        <ul class="flex flex-col gap-4 px-6 py-5 text-sm font-semibold uppercase tracking-[0.18em] text-[#2B2118]">
-          <li>
-            <a href="/" class="block transition hover:text-[#9A6A3A]">
-              Home
-            </a>
-          </li>
-
-          <li>
-            <a href="/about" class="block transition hover:text-[#9A6A3A]">
-              About
-            </a>
-          </li>
-
-          <li>
-            <a href="/rules" class="block transition hover:text-[#9A6A3A]">
-              Rules
-            </a>
-          </li>
-
-          <li>
-            <a href="/booking" class="block transition hover:text-[#9A6A3A]">
-              Booking
-            </a>
-          </li>
-
-          <li>
-            <a href="/gallery" class="block transition hover:text-[#9A6A3A]">
-              Gallery
-            </a>
-          </li>
-
-          <li>
-            <a href="/contact" class="block transition hover:text-[#9A6A3A]">
-              Contact
-            </a>
-          </li>
+      <nav aria-label="Mobile navigation" class="mobile-menu">
+        <ul class="mobile-nav-list">
+          <li><a href="/" class="mobile-nav-link">Home</a></li>
+          <li><a href="/about" class="mobile-nav-link">About</a></li>
+          <li><a href="/rules" class="mobile-nav-link">Rules</a></li>
+          <li><a href="/booking" class="mobile-nav-link">Booking</a></li>
+          <li><a href="/gallery" class="mobile-nav-link">Gallery</a></li>
+          <li><a href="/contact" class="mobile-nav-link">Contact</a></li>
         </ul>
       </nav>
-    </div>
-  </header>
+    </details>
+  </div>
+</header>
 
-  <main id="main-content" class="flex-1">
-    <%= yield %>
-  </main>
+<main id="main-content" class="site-main">
+  <%= yield %>
+</main>
 
-  <footer class="mt-20 border-t border-[#4A4036]/40 bg-[#2F3A25] text-[#F4EFE7]">
-    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-12 md:grid-cols-3">
-      <section>
-        <h2 class="mb-4 text-lg font-semibold tracking-wide">
-          Dumnonni Chronicles
-        </h2>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <section>
+      <h2 class="footer-heading">
+        Dumnonni Chronicles
+      </h2>
 
-        <p class="max-w-2xs text-m leading-relaxed text-[#DCD3BE]">
-          Live action roleplay inspired by Celtic mythology, dark age Britain,
-          and heroic storytelling.
-        </p>
-      </section>
+      <p class="footer-description">
+        Live action roleplay inspired by Celtic mythology, dark age Britain,
+        and heroic storytelling.
+      </p>
+    </section>
 
-      <section>
-        <h2 class="mb-4 text-lg font-semibold tracking-wide">
-          Community
-        </h2>
+    <section>
+      <h2 class="footer-heading">
+        Community
+      </h2>
 
-        <ul class="space-y-2 text-m text-[#DCD3BE]">
-          <li>
-            <a
-              href="https://www.facebook.com/dumnonni"
-              class="transition hover:text-[#B65A2A]"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Facebook
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="https://discord.gg/VPaFrcg6uf"
-              class="transition hover:text-[#B65A2A]"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Discord
-            </a>
-          </li>
-        </ul>
-      </section>
-
-      <section>
-        <h2 class="mb-4 text-lg font-semibold tracking-wide">
-          Find us
-        </h2>
-      <ul class="space-y-2 text-m text-[#DCD3BE]">
+      <ul class="footer-list">
         <li>
           <a
-            href="https://maps.app.goo.gl/mTT6yJwWq8bZPWNL6"
-            class="transition hover:text-[#B65A2A] space-y-2 text-m text-[#DCD3BE]"
-          target="_blank"
-          rel="noopener noreferrer"
+            href="https://www.facebook.com/dumnonni"
+            class="footer-link"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-          Google Maps
+            Facebook
           </a>
         </li>
 
         <li>
-          <h3 class="space-y-2 text-m text-[#DCD3BE]">What3Words </h3>
-
-          <p  class="space-y-2 text-m text-[#DCD3BE]">voted.leotard.canoe </p>
+          <a
+            href="https://discord.gg/VPaFrcg6uf"
+            class="footer-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Discord
+          </a>
         </li>
       </ul>
-      </section>
-    </div>
+    </section>
 
-    <div class="border-t border-[#F4EFE7]/15 px-6 py-6 text-center text-xs text-[#DCD3BE]">
-      © <%= Time.current.year %> Dumnonni Chronicles. All rights reserved.
-    </div>
-  </footer>
+    <section>
+      <h2 class="footer-heading">
+        Find us
+      </h2>
 
-  <script>
-    document.addEventListener("turbo:load", () => {
-      const button = document.getElementById("mobile-menu-button")
-      const menu = document.getElementById("mobile-menu")
+      <ul class="footer-list">
+        <li>
+          <a
+            href="https://maps.app.goo.gl/mTT6yJwWq8bZPWNL6"
+            class="footer-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Google Maps
+          </a>
+        </li>
 
-      if (!button || !menu) return
+        <li>
+          <h3 class="footer-text">What3Words</h3>
+          <p class="footer-text">voted.leotard.canoe</p>
+        </li>
+      </ul>
+    </section>
+  </div>
 
-      button.addEventListener("click", () => {
-        const expanded = button.getAttribute("aria-expanded") === "true"
-
-        button.setAttribute("aria-expanded", (!expanded).toString())
-        button.setAttribute(
-          "aria-label",
-          expanded ? "Open navigation menu" : "Close navigation menu"
-        )
-
-        menu.classList.toggle("hidden")
-      })
-    })
-  </script>
+  <div class="footer-bottom">
+    © <%= Time.current.year %> Dumnonni Chronicles. All rights reserved.
+  </div>
+</footer>
 </body>
 </html>
