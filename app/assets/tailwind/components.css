@@ -7,6 +7,79 @@
         @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-[#F4EFE7] focus:px-4 focus:py-2 focus:text-[#2B2118] focus:shadow-lg;
     }
 
+    .content-carousel-section {
+        @apply mx-auto max-w-7xl px-6 py-12;
+    }
+
+    .content-carousel {
+        @apply grid grid-cols-[auto_1fr_auto] items-center gap-3;
+    }
+
+    .content-carousel-viewport {
+        @apply overflow-hidden;
+    }
+
+    .content-carousel-track {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 100%;
+        gap: 1.25rem;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+
+    @media (min-width: 640px) {
+        .content-carousel-track {
+            grid-auto-columns: calc((100% - 1.25rem) / 2);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .content-carousel-track {
+            grid-auto-columns: calc((100% - 5rem) / 5);
+        }
+    }
+
+    .content-carousel-arrow {
+        @apply bg-transparent px-2 text-6xl leading-none text-[#2B2118] transition hover:text-[#9A6A3A] focus:outline-none focus:text-[#9A6A3A];
+    }
+
+    .content-carousel-arrow-left {
+        @apply justify-self-start;
+    }
+
+    .content-carousel-arrow-right {
+        @apply justify-self-end;
+    }
+
+    .carousel-slide-content {
+        @apply h-full;
+    }
+
+    .carousel-image-link {
+        @apply block overflow-hidden rounded-lg shadow-xl transition hover:-translate-y-1 hover:shadow-[0_24px_45px_rgba(43,33,24,0.35)] focus:outline-none focus:ring-2 focus:ring-[#9A6A3A] focus:ring-offset-4 focus:ring-offset-[#E8DFD7];
+    }
+
+    .carousel-card-image {
+        @apply aspect-square w-full rounded-lg object-cover transition hover:scale-105;
+    }
+
+    .carousel-text {
+        @apply mt-4 space-y-2;
+    }
+
+    .carousel-card-title {
+        @apply text-lg font-semibold tracking-wide text-[#2B2118];
+    }
+
+    .carousel-title-link {
+        @apply text-[#2B2118] no-underline transition hover:text-[#9A6A3A] focus:outline-none focus:text-[#9A6A3A];
+    }
+
+    .carousel-card-description {
+        @apply text-sm leading-relaxed text-[#4A4036];
+    }
+
     .site-header {
         @apply sticky top-0 z-50 relative border-b border-[#4A4036]/40 bg-[#DCD3BE]/95 backdrop-blur;
     }

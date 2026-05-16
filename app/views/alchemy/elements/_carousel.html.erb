@@ -1,25 +1,39 @@
 <%= element_view_for(element) do |el| %>
-  <div id="universeCarousel" class="carousel slide" data-bs-ride="carousel">
-    <!-- Carousel Indicators -->
-    <div class="carousel-indicators">
-      <% element.nested_elements.each_with_index do |slide, index| %>
-        <button type="button" data-bs-target="#universeCarousel" data-bs-slide-to="<%= index %>" class="<%= 'active' if index.zero? %>" aria-current="<%= 'true' if index.zero? %>" aria-label="Slide <%= index + 1 %>"></button>
-      <% end %>
-    </div>
+  <% slides = element.nested_elements %>
 
-    <!-- Carousel Items -->
-    <div class="carousel-inner">
-      <%= render element.nested_elements %>
-    </div>
+  <% if slides.any? %>
+    <section class="content-carousel-section" aria-label="Featured pages">
+      <div class="content-carousel" data-controller="carousel">
+        <% if slides.size > 5 %>
+          <button
+            class="content-carousel-arrow content-carousel-arrow-left"
+            type="button"
+            aria-label="Previous carousel items"
+            data-action="carousel#previous"
+          >
+            ‹
+          </button>
+        <% end %>
 
-    <!-- Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#universeCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#universeCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
+        <div class="content-carousel-viewport">
+          <div class="content-carousel-track" data-carousel-target="track">
+            <%= render partial: "alchemy/elements/carousel_slide",
+                       collection: slides,
+                       as: :element %>
+          </div>
+        </div>
+
+        <% if slides.size > 5 %>
+          <button
+            class="content-carousel-arrow content-carousel-arrow-right"
+            type="button"
+            aria-label="Next carousel items"
+            data-action="carousel#next"
+          >
+            ›
+          </button>
+        <% end %>
+      </div>
+    </section>
+  <% end %>
 <% end %>

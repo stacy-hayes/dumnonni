@@ -1,12 +1,38 @@
 <%= element_view_for(element) do |el| %>
-  <div class="carousel-item <%= 'active' if carousel_slide_counter.zero? %>">
-    <%= el.render :image, { size: "1200x500" }, class: "d-block w-100" %>
+  <% linked_page = element.value_for(:linked_page) %>
+  <% title = element.value_for(:title) %>
+  <% description = element.value_for(:description) %>
+  <% page_url = linked_page&.url_path %>
 
-    <% if el.ingredient(:title).present? || el.ingredient(:caption).present? %>
-      <div class="carousel-caption d-none d-md-block">
-        <h5><%= el.ingredient(:title) %></h5>
-        <p><%= el.ingredient(:caption) %></p>
+  <article class="carousel-slide-content">
+    <% if page_url.present? %>
+      <%= link_to page_url, class: "carousel-image-link", aria: { label: title.presence || "View linked page" } do %>
+        <%= el.render :image, { size: "500x500" }, class: "carousel-card-image" %>
+      <% end %>
+    <% else %>
+      <div class="carousel-image-link">
+        <%= el.render :image, { size: "500x500" }, class: "carousel-card-image" %>
       </div>
     <% end %>
-  </div>
+
+    <% if title.present? || description.present? %>
+      <div class="carousel-text">
+        <% if title.present? %>
+          <h3 class="carousel-card-title">
+            <% if page_url.present? %>
+              <%= link_to title, page_url, class: "carousel-title-link" %>
+            <% else %>
+              <%= title %>
+            <% end %>
+          </h3>
+        <% end %>
+
+        <% if description.present? %>
+          <p class="carousel-card-description">
+            <%= description %>
+          </p>
+        <% end %>
+      </div>
+    <% end %>
+  </article>
 <% end %>

@@ -9,11 +9,10 @@
     - hero
     - rich_text
     - image_text
-    - cta
 
 - name: standard
   elements:
     - hero
     - rich_text
     - image_text
-    - cta
+    - carousel

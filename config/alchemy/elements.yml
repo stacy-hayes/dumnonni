@@ -56,11 +56,13 @@
     - carousel_slide
 
 - name: carousel_slide
-  hint: "A single slide for the carousel."
+  hint: "A linked carousel card with an image, title, and description."
   ingredients:
     - role: image
       type: Picture
+    - role: linked_page
+      type: Page
     - role: title
       type: Text
-    - role: caption
+    - role: description
       type: Text
